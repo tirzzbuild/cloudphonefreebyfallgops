@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050b16">
+<title>FALL CLOUD — Cloud Phone</title>
+<style>
+:root{--bg:#050914;--panel:#0a1424;--panel2:#0d1b30;--line:#1b3554;--blue:#078cff;--cyan:#19d8ff;--text:#eef7ff;--muted:#8ba4bf;--green:#35e69b;--red:#ff627d}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#0a2b52 0,transparent 42%),var(--bg);color:var(--text);font:14px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}.muted{color:var(--muted)}.brand{font-size:20px;font-weight:900;letter-spacing:.5px}.brand span{color:var(--cyan)}.logo{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--blue),#003e9b);box-shadow:0 0 25px #078cff44;margin-right:9px}
+button,.btn{border:1px solid var(--line);background:#10223a;color:var(--text);border-radius:11px;padding:11px 14px;font-weight:750;transition:.2s}button:hover,.btn:hover{filter:brightness(1.18);transform:translateY(-1px)}.primary{border:0;background:linear-gradient(100deg,#087cff,#00b9ff);box-shadow:0 7px 25px #078cff30}.danger{color:#ff8a9b;border-color:#6b283c;background:#24101b}.outline{background:transparent}
+input,select{width:100%;padding:13px 14px;border-radius:11px;border:1px solid #244362;background:#06101e;color:var(--text);outline:none}input:focus,select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #19d8ff14}
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:22px}.login-card{width:min(100%,440px);padding:30px;border:1px solid #15518a;border-radius:24px;background:linear-gradient(145deg,#0b1a2d,#050b16 75%);box-shadow:0 24px 90px #0008,0 0 45px #087cff10}.login-brand{text-align:center;margin-bottom:25px}.login-card h1{text-align:center;margin:8px 0 3px;font-size:27px}.login-card .intro{text-align:center;color:var(--muted);margin:0 0 25px}.field{margin:16px 0}.field label{display:block;margin-bottom:7px;color:#bfd5eb;font-weight:700}.full{width:100%}.login-note{font-size:12px;color:var(--muted);text-align:center;margin-top:17px}.error{color:#ff8197;font-size:12px;min-height:18px;margin-top:8px}.login-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);background:#071222;border-radius:13px;padding:13px;margin-top:20px;font-size:12px}
+.app{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:100vh}.sidebar{border-right:1px solid var(--line);background:#060d18;padding:22px 14px;display:flex;flex-direction:column;gap:24px;position:sticky;top:0;height:100vh}.nav{display:grid;gap:7px}.nav button{background:transparent;border:1px solid transparent;text-align:left;color:#9db3cb;font-weight:650;padding:12px}.nav button.active{background:linear-gradient(90deg,#087cff2b,#0c2340);border-color:#154b7b;color:#fff}.nav button .ico{display:inline-block;width:27px;color:var(--cyan)}.side-user{margin-top:auto;padding:13px;border:1px solid var(--line);border-radius:14px;background:#091525}.avatar{width:35px;height:35px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#1e91ff,#12396d);font-weight:900}.userrow{display:flex;align-items:center;gap:10px}.main{min-width:0;padding:25px clamp(15px,3vw,36px) 42px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:26px}.top-actions{display:flex;align-items:center;gap:10px}.mobile-menu{display:none}.eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:3px;font-size:10px;font-weight:900}.hero{position:relative;overflow:hidden;padding:28px;border:1px solid #16477a;border-radius:20px;background:radial-gradient(ellipse at 90% 50%,#064f9b70,transparent 45%),linear-gradient(120deg,#0d2340,#081222);margin-bottom:22px}.hero h1{font-size:clamp(26px,4vw,39px);line-height:1.12;margin:9px 0}.hero p{max-width:560px;color:#a8c0d9}.hero-glow{position:absolute;right:35px;top:24px;font-size:94px;opacity:.13;filter:drop-shadow(0 0 20px var(--cyan));pointer-events:none}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:27px 0 14px}.section-head h2{margin:0;font-size:19px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.stat,.card{background:linear-gradient(145deg,#0d1a2b,#08111e);border:1px solid var(--line);border-radius:16px;padding:17px;min-width:0}.stat .label{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:24px;margin:7px 0 2px}.stat .sub{font-size:11px;color:var(--green)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.phone-card{padding:15px}.phone-art{height:130px;display:grid;place-items:center;background:radial-gradient(ellipse,#087cff35,transparent 65%);border-radius:12px;margin-bottom:13px}.phone{width:55px;height:106px;border:2px solid #49779d;border-radius:12px;background:linear-gradient(160deg,#092b5a,#07101f 70%);box-shadow:0 0 22px #078cff2e;position:relative;padding:17px 5px 5px}.phone:before{content:"";position:absolute;top:5px;left:17px;width:17px;height:3px;border-radius:4px;background:#5c8ab0}.screen-dots{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.screen-dots i{height:9px;border-radius:3px;background:linear-gradient(135deg,#0cbfff,#3e68ff)}.phone-title{font-weight:800}.pill{display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:4px 8px;background:#102c30;color:var(--green);font-size:10px;font-weight:800}.pill:before{content:"";width:5px;height:5px;background:currentColor;border-radius:50%}.meta{color:var(--muted);font-size:12px;margin:7px 0 13px}.card-actions{display:flex;gap:7px}.card-actions button{flex:1;padding:9px 8px;font-size:12px}.quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.quick{display:flex;align-items:center;gap:12px;text-align:left}.quick .qicon{width:40px;height:40px;border-radius:12px;background:#0d3762;display:grid;place-items:center;color:var(--cyan);font-size:18px;flex-shrink:0}.quick b{display:block}.quick small{color:var(--muted)}.page{display:none}.page.active{display:block}.two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.profile-line{display:flex;align-items:center;gap:13px;padding:16px 0;border-bottom:1px solid var(--line)}.profile-line:last-child{border-bottom:0}.profile-line span{margin-left:auto;text-align:right;overflow-wrap:anywhere}.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.plan{border:1px solid var(--line);border-radius:15px;padding:17px;background:#091525}.plan h3{margin:0}.price{font-size:25px;font-weight:900;margin:12px 0}.plan p{font-size:12px;color:var(--muted)}.plan .primary{width:100%}.banner{padding:13px 15px;border-radius:12px;border:1px solid #22507a;background:#09213a;color:#b8d7f5;font-size:12px;margin:14px 0}.settings-row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 0;border-bottom:1px solid var(--line)}.settings-row:last-child{border:0}.switch{width:42px;height:24px;padding:3px;border-radius:30px;background:#24415b;display:inline-flex;align-items:center}.switch:after{content:"";width:18px;height:18px;border-radius:50%;background:white;transition:.2s}.switch.on{background:#078cff;justify-content:flex-end}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#0d243b;border:1px solid #1763a0;padding:12px 18px;border-radius:12px;box-shadow:0 10px 35px #0008;z-index:9;max-width:90vw;text-align:center}.empty{padding:25px;text-align:center;color:var(--muted)}footer{margin-top:35px;color:#617e9b;font-size:11px;text-align:center}
+@media(max-width:900px){.app{grid-template-columns:190px minmax(0,1fr)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.quick-grid{grid-template-columns:1fr}.two-col{grid-template-columns:1fr}.plans{grid-template-columns:1fr}}
+@media(max-width:620px){.app{display:block}.sidebar{position:fixed;z-index:8;top:0;left:0;width:260px;transform:translateX(-105%);transition:.22s;box-shadow:20px 0 50px #0008}.sidebar.open{transform:translateX(0)}.mobile-menu{display:inline-block}.main{padding:17px 13px 30px}.topbar{margin-bottom:18px}.brand{font-size:17px}.top-actions .user-label{display:none}.hero{padding:21px}.hero-glow{right:5px;font-size:65px}.cards{grid-template-columns:1fr 1fr;gap:9px}.phone-card{padding:11px}.phone-art{height:100px}.phone{transform:scale(.84)}.card-actions{flex-direction:column}.card-actions button{width:100%}.stat{padding:13px}.stat strong{font-size:20px}.login-card{padding:23px 18px}.section-head{align-items:flex-start}.quick-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<section id="loginScreen" class="login-wrap">
+  <div class="login-card">
+    <div class="login-brand"><div class="brand"><span class="logo">☁</span>FALL <span>CLOUD</span></div></div>
+    <div class="eyebrow" style="text-align:center">Cloud Phone Platform</div>
+    <h1>Login ke Akun</h1>
+    <p class="intro">Masukkan key untuk membuka dashboard FALL CLOUD.</p>
+    <form id="loginForm">
+      <div class="field"><label for="keyInput">Access Key</label><input id="keyInput" autocomplete="off" placeholder="Masukkan key FALLXITERZ" required></div>
+      <button class="primary full" type="submit">Masuk ke Dashboard <span aria-hidden="true">→</span></button>
+      <div id="loginError" class="error" role="status"></div>
+    </form>
+    <div class="banner">🔒 Prototype demo. Key contoh untuk masuk: <b>FALLXITERZ</b></div>
+    <div class="login-bottom"><span>Belum punya key?<br><span class="muted">Hubungi pengelola platform demo.</span></span><button type="button" class="outline" id="showKey">Lihat Key Demo</button></div>
+    <p class="login-note">© 2026 FALL CLOUD · UI Demo · Tidak menyediakan perangkat cloud sungguhan.</p>
+  </div>
+</section>
+
+<div id="app" class="app hidden">
+  <aside id="sidebar" class="sidebar">
+    <div class="brand"><span class="logo">☁</span>FALL <span>CLOUD</span></div>
+    <nav class="nav" aria-label="Navigasi utama">
+      <button class="active" data-page="home"><span class="ico">⌂</span>Beranda</button>
+      <button data-page="cloud"><span class="ico">▣</span>Cloud Phone</button>
+      <button data-page="account"><span class="ico">♙</span>Akun Saya</button>
+      <button data-page="purchase"><span class="ico">▤</span>Pembelian</button>
+      <button data-page="help"><span class="ico">ⓘ</span>Bantuan</button>
+      <button data-page="settings"><span class="ico">⚙</span>Pengaturan</button>
+    </nav>
+    <div class="side-user"><div class="userrow"><div class="avatar">F</div><div><b id="sideName">FALLXITERZ</b><div class="muted" style="font-size:11px">Demo Member</div></div></div><button id="logoutBtn" class="outline full" style="margin-top:13px">↪ Keluar</button></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div style="display:flex;align-items:center;gap:12px"><button id="menuBtn" class="mobile-menu">☰</button><div><div class="eyebrow">Workspace</div><b id="pageTitle">Beranda</b></div></div><div class="top-actions"><span class="pill">Demo Mode</span><div class="userrow"><div class="avatar">F</div><span id="topName" class="user-label">FALLXITERZ</span></div></div></header>
+
+    <section id="page-home" class="page active">
+      <div class="hero"><div class="hero-glow">☁</div><div class="eyebrow">Your cloud. Your rules.</div><h1>Selamat datang,<br><span style="color:var(--cyan)">FALLXITERZ!</span></h1><p>Kelola pengalaman cloud phone dari satu dashboard. Mulai dari perangkat virtual demo, pengaturan akun, hingga paket layanan.</p><button class="primary" data-goto="cloud">Jelajahi Cloud Phone →</button></div>
+      <div class="stats">
+        <div class="stat"><div class="label">Cloud Phone</div><strong>03</strong><div class="sub">Perangkat demo</div></div>
+        <div class="stat"><div class="label">Key Status</div><strong style="font-size:20px">Aktif</strong><div class="sub">Key terdeteksi lokal</div></div>
+        <div class="stat"><div class="label">Saldo Demo</div><strong>Rp25.000</strong><div class="sub">Tidak bisa dicairkan</div></div>
+        <div class="stat"><div class="label">Status Layanan</div><strong style="font-size:20px">Online</strong><div class="sub">Antarmuka saja</div></div>
+      </div>
+      <div class="section-head"><h2>Cloud Phone Pilihan</h2><button class="outline" data-goto="cloud">Lihat semua →</button></div>
+      <div class="cards" id="homePhones"></div>
+      <div class="section-head"><h2>Akses Cepat</h2></div>
+      <div class="quick-grid">
+        <button class="quick" data-goto="cloud"><span class="qicon">▣</span><span><b>Cloud Phone</b><small>Kelola perangkat virtual</small></span></button>
+        <button class="quick" data-goto="purchase"><span class="qicon">＋</span><span><b>Paket & Saldo</b><small>Lihat pilihan paket demo</small></span></button>
+        <button class="quick" data-goto="help"><span class="qicon">?</span><span><b>Pusat Bantuan</b><small>Informasi penggunaan</small></span></button>
+      </div>
+    </section>
+
+    <section id="page-cloud" class="page">
+      <div class="hero"><div class="eyebrow">Virtual device manager</div><h1>Cloud Phone</h1><p>Pilih perangkat demo untuk melihat panel kontrol. Perangkat di halaman ini tidak terhubung ke Android cloud sungguhan.</p></div>
+      <div class="section-head"><h2>Perangkat tersedia</h2><button id="refreshBtn" class="outline">↻ Refresh</button></div>
+      <div id="cloudPhones" class="cards"></div>
+    </section>
+
+    <section id="page-account" class="page">
+      <div class="section-head"><h2>Akun Saya</h2></div>
+      <div class="two-col"><div class="card"><div class="userrow" style="padding-bottom:17px;border-bottom:1px solid var(--line)"><div class="avatar" style="width:55px;height:55px;font-size:21px">F</div><div><h2 style="margin:0">FALLXITERZ</h2><div class="muted">Demo Member · ID FC-1001</div></div></div>
+      <div class="profile-line"><b>Nama akun</b><span>FALLXITERZ</span></div><div class="profile-line"><b>Access Key</b><span>FALLXITERZ</span></div><div class="profile-line"><b>Status akun</b><span class="pill">Aktif (demo)</span></div><div class="profile-line"><b>Tipe akun</b><span>Free Demo</span></div><button id="copyKeyBtn" class="outline full" style="margin-top:15px">Salin Key Demo</button></div>
+      <div class="card"><h3>Keamanan Akun</h3><p class="muted">Key pada prototype ini disimpan di sisi halaman dan bukan sistem autentikasi aman.</p><div class="banner">Untuk rilis publik, gunakan server untuk validasi key, pembatasan akses, dan penyimpanan akun.</div><button class="outline full" data-goto="settings">Buka Pengaturan</button></div></div>
+    </section>
+
+    <section id="page-purchase" class="page">
+      <div class="hero"><div class="eyebrow">Plans & billing</div><h1>Paket Cloud Phone</h1><p>Pilih paket untuk melihat simulasi konfirmasi. Tidak ada transaksi atau pembayaran sungguhan.</p></div>
+      <div class="banner">ℹ️ Semua harga di bawah hanya contoh desain. Jangan masukkan informasi kartu atau PIN pembayaran.</div>
+      <div class="plans">
+        <div class="plan"><span class="pill">STARTER</span><h3>Basic Cloud</h3><div class="price">Rp10.000<small class="muted">/demo</small></div><p>• 1 perangkat demo<br>• Kontrol dasar<br>• Dukungan standar</p><button class="primary" data-buy="Basic Cloud">Pilih Paket</button></div>
+        <div class="plan" style="border-color:#087cff"><span class="pill">POPULER</span><h3>Pro Cloud</h3><div class="price">Rp25.000<small class="muted">/demo</small></div><p>• 2 perangkat demo<br>• Kontrol tambahan<br>• Dukungan prioritas</p><button class="primary" data-buy="Pro Cloud">Pilih Paket</button></div>
+        <div class="plan"><span class="pill">ULTIMATE</span><h3>Max Cloud</h3><div class="price">Rp50.000<small class="muted">/demo</small></div><p>• 3 perangkat demo<br>• Profil konfigurasi<br>• Dukungan premium</p><button class="primary" data-buy="Max Cloud">Pilih Paket</button></div>
+      </div>
+      <div id="purchaseResult" class="banner hidden"></div>
+    </section>
+
+    <section id="page-help" class="page">
+      <div class="section-head"><h2>Pusat Bantuan</h2></div><div class="card"><h3>Apa itu FALL CLOUD?</h3><p class="muted">FALL CLOUD dalam versi ini adalah prototype HTML untuk memperlihatkan rancangan dashboard platform cloud phone.</p><div class="settings-row"><div><b>Apakah perangkat Android sungguhan?</b><div class="muted">Belum. Panel perangkat hanya simulasi UI.</div></div></div><div class="settings-row"><div><b>Apakah bisa login Google?</b><div class="muted">Belum. Fitur itu memerlukan layanan backend dan perangkat cloud asli.</div></div></div><div class="settings-row"><div><b>Apakah pembayaran sudah aktif?</b><div class="muted">Tidak. Halaman pembelian hanya contoh antarmuka.</div></div></div><div class="settings-row"><div><b>Bagaimana membuatnya menjadi layanan nyata?</b><div class="muted">Perlu server, database, autentikasi, penyedia virtual Android, dan sistem pembayaran resmi.</div></div></div></div>
+    </section>
+
+    <section id="page-settings" class="page">
+      <div class="section-head"><h2>Pengaturan</h2></div><div class="two-col"><div class="card"><h3>Preferensi Tampilan</h3><div class="settings-row"><div><b>Efek neon</b><div class="muted">Efek visual antarmuka</div></div><button class="switch on" data-switch></button></div><div class="settings-row"><div><b>Notifikasi demo</b><div class="muted">Pesan aktivitas simulasi</div></div><button class="switch on" data-switch></button></div><div class="settings-row"><div><b>Animasi kartu</b><div class="muted">Transisi ringan</div></div><button class="switch" data-switch></button></div></div><div class="card"><h3>Informasi Aplikasi</h3><div class="profile-line"><b>Nama</b><span>FALL CLOUD</span></div><div class="profile-line"><b>Versi</b><span>1.0.0 HTML Demo</span></div><div class="profile-line"><b>Build</b><span>FC-WEB-2026</span></div><div class="profile-line"><b>Mode</b><span>Frontend prototype</span></div></div></div>
+    </section>
+    <footer>FALL CLOUD © 2026 · Prototype HTML · Cloud phone asli memerlukan infrastruktur terpisah.</footer>
+  </main>
+</div>
+<div id="toast" class="toast hidden" role="status"></div>
+<script>
+const DEMO_KEY = "FALLXITERZ"; // Demo only: key yang ditanam di HTML dapat dilihat siapa pun.
+const devices = [
+ {id:1,name:"Cloud Phone 01",os:"Android 14",ram:"4 GB",storage:"64 GB",state:"Tersedia"},
+ {id:2,name:"Cloud Phone 02",os:"Android 13",ram:"4 GB",storage:"64 GB",state:"Tersedia"},
+ {id:3,name:"Cloud Phone 03",os:"Android 12",ram:"6 GB",storage:"128 GB",state:"Tersedia"}
+];
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+let toastTimer;
+function toast(message){const t=$("#toast");t.textContent=message;t.classList.remove("hidden");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add("hidden"),2600)}
+function phoneCard(d){return `<article class="card phone-card"><div class="phone-art"><div class="phone"><div class="screen-dots">${Array.from({length:12},()=>"<i></i>").join("")}</div></div></div><div class="phone-title">${d.name}</div><div class="meta">${d.os} · ${d.ram} RAM · ${d.storage}</div><div style="margin-bottom:12px"><span class="pill">${d.state}</span></div><div class="card-actions"><button class="primary" data-device="${d.id}">Masuk</button><button class="outline" data-info="${d.id}">Detail</button></div></article>`}
+function renderDevices(){$("#cloudPhones").innerHTML=devices.map(phoneCard).join("");$("#homePhones").innerHTML=devices.slice(0,3).map(phoneCard).join("");}
+function showPage(page){$$(".page").forEach(p=>p.classList.remove("active"));$("#page-"+page)?.classList.add("active");$$(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));const labels={home:"Beranda",cloud:"Cloud Phone",account:"Akun Saya",purchase:"Pembelian",help:"Bantuan",settings:"Pengaturan"};$("#pageTitle").textContent=labels[page]||"Beranda";$("#sidebar").classList.remove("open");window.scrollTo({top:0,behavior:"smooth"})}
+$("#loginForm").addEventListener("submit",e=>{e.preventDefault();const key=$("#keyInput").value.trim();if(key.toUpperCase()===DEMO_KEY){$("#loginError").textContent="";$("#loginScreen").classList.add("hidden");$("#app").classList.remove("hidden");renderDevices();toast("Login demo berhasil. Selamat datang di FALL CLOUD!")}else{$("#loginError").textContent="Key tidak valid. Untuk prototype ini gunakan key demo FALLXITERZ."}});
+$("#showKey").addEventListener("click",()=>{ $("#keyInput").value=DEMO_KEY; $("#keyInput").focus(); $("#loginError").textContent="Key demo diisikan. Tekan Masuk ke Dashboard."; });
+$("#logoutBtn").addEventListener("click",()=>{ $("#app").classList.add("hidden");$("#loginScreen").classList.remove("hidden");$("#keyInput").value="";$("#loginError").textContent="";toast("Anda telah keluar dari demo.")});
+$("#menuBtn").addEventListener("click",()=>$("#sidebar").classList.toggle("open"));
+document.addEventListener("click",e=>{const nav=e.target.closest("[data-page]");if(nav)showPage(nav.dataset.page);const go=e.target.closest("[data-goto]");if(go)showPage(go.dataset.goto);const dev=e.target.closest("[data-device]");if(dev){const d=devices.find(x=>x.id===Number(dev.dataset.device));toast(`${d.name}: panel kontrol simulasi dibuka.`);showPage("cloud");}const info=e.target.closest("[data-info]");if(info){const d=devices.find(x=>x.id===Number(info.dataset.info));alert(`${d.name}\\nOS: ${d.os}\\nRAM: ${d.ram}\\nStorage: ${d.storage}\\n\\nIni perangkat demo, bukan Android cloud sungguhan.`)}const buy=e.target.closest("[data-buy]");if(buy){$("#purchaseResult").textContent=`Paket ${buy.dataset.buy} dipilih dalam simulasi. Tidak ada pembayaran yang diproses.`;$("#purchaseResult").classList.remove("hidden");toast("Pilihan paket demo dicatat di layar.")}const sw=e.target.closest("[data-switch]");if(sw)sw.classList.toggle("on")});
+$("#refreshBtn").addEventListener("click",()=>{renderDevices();toast("Daftar perangkat demo diperbarui.")});
+$("#copyKeyBtn").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(DEMO_KEY);toast("Key demo disalin.")}catch(e){alert("Key demo: "+DEMO_KEY)}});
+renderDevices();
+</script>
+</body>
+</html>
